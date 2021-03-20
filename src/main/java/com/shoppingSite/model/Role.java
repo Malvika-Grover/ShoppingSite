@@ -17,23 +17,13 @@ import javax.persistence.*;
 @Builder
 @Table
 
-public class Users {
+public class Role {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long usersId;
 
-    private String username;
+    private String roleName;
 
-    private String password;
-
-    private String role;
-
-    private int mobileNumber;
-
-    private char email;
-
-    private boolean isActive;
-
+    private String isActive;
 }
-

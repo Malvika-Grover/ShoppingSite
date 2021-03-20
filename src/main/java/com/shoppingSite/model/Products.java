@@ -1,10 +1,6 @@
 package com.shoppingSite.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +9,7 @@ import lombok.ToString;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import org.springframework.web.multipart.MultipartFile;
+
 @Getter
 @Setter
 @ToString
@@ -20,6 +17,9 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table
+
+
 public class Products{
 
 
