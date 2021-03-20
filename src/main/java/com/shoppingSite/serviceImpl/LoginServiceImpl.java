@@ -28,7 +28,7 @@ public class LoginServiceImpl implements com.shoppingSite.service.LoginService {
             log.info("username or password is null");
             return false;
         }
-        User user = userRepository.findByUsernameIn(username);
+        User user = userRepository.findByUsername(username);
         if (null == user) {
             log.info("not a valid user");
             return false;
@@ -49,7 +49,7 @@ public class LoginServiceImpl implements com.shoppingSite.service.LoginService {
         String auth = Base64.decodeBase64(token).toString();
         int i =0;
         String username = "";
-        while (auth.charAt(i) != ":") {
+        while (auth.charAt(i) != ':') {
             username = username + auth.charAt(i);
             i++;
 

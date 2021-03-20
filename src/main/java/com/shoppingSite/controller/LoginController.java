@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.net.http.HttpHeaders;
 import java.nio.charset.Charset;
 
-import static com.sun.tools.sjavac.Util.set;
 
 @Controller
 public class LoginController {
@@ -27,7 +25,7 @@ public class LoginController {
 
 
     @RequestMapping( value = "/submit", method = RequestMethod.POST)
-    public Boolean login(@RequestParam String username,
+    public String login(@RequestParam String username,
                           @RequestParam String password) {
 
         Boolean isValidUser = loginService.isValidUser(username, password);
@@ -35,17 +33,11 @@ public class LoginController {
                     String auth = username + ":" + password;
                     byte[] encodedAuth = Base64.encodeBase64(
                             auth.getBytes(Charset.forName("US-ASCII")) );
-                    String authHeader = "Basic " + new String( encodedAuth );
-                    try {
-                        set( "Authorization", authHeader );
-                    }
-                    catch (Exception e){
-                        return false;
-                    }
-                    return true;
-
+                    String authHeader =  new String( encodedAuth );
+                    return authHeader;
                 }
-        return false;
+        return null;
+
         }
 
     }
