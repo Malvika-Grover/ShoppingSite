@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class LoginServiceImpl implements com.shoppingSite.servce.LoginService {
+public class LoginServiceImpl implements com.shoppingSite.service.LoginService {
     @Override
     public Boolean isValidUser(String username, String password) {
         if(null == username && null == password){
