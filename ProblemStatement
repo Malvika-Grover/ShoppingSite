@@ -1,0 +1,21 @@
+
+Assignment:
+
+Create A Java Web Application using the spring framework.
+
+This application having a User, Role, Products, Saled_Product, Buy_Product Entities (Tables).
+
+The above Tables having the following fields:
+User -> (id,fullName,Password(Encrepted form), is_Active, Role,MobileNo, Email (Optional), createdDate, UpdatedDate)
+
+Roles -> (id, RoleName(Admin,User,Saler,Buyer), isActive)
+
+Products -> (Id, ProductName, Description, price, currency,images,createdDate, salerId(User having role saler), QTY)
+
+* Create API for the following scenario.
+1-> Create a login/signup API for user,
+2-> User having an API access authority By his role.
+3-> To the Adding/Updating/Deleting a product user required the Saler Authority and he only modifies the own products
+4-> when some product bought by the user, it should ve reflect in Saled_Product, Buy_Product and Products table.
+
+it is good that if you build the UI with your favourite front end technology.
