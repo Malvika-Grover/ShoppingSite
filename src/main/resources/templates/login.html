@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <title>Login page</title>
-    <link th:href="@{/public/style.css}" rel="stylesheet" />
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 <body>
-<div id="container">
-    <h2>Login page</h2>
-    <form th:action="@{/login.html}" method="post">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" autofocus="autofocus" />
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" />
-        <input id="submit" type="submit" value="Log in" />
+<h2>Login Page</h2><br>
+<div class="login">
+    <form id="login" method="get" action="login.php">
+        <label><b>User Name
+        </b>
+        </label>
+        <input type="text" name="Uname" id="Uname" placeholder="Username">
+        <br><br>
+        <label><b>Password
+        </b>
+        </label>
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">
+        <br><br>
+        <input type="button" name="log" id="log" value="Log In Here">
+<!--        <br><br>-->
+<!--        <input type="checkbox" id="check">-->
+<!--        <span>Remember me</span>-->
+<!--        <br><br>-->
     </form>
-    <p th:if="${loginError}" class="error">Wrong user or password</p>
 </div>
 </body>
 </html>
