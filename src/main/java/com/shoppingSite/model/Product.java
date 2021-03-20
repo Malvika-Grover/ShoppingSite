@@ -20,10 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Table
 
 
-public class Products{
+public class Product {
 
-
-    private static final Long serialVersionUID = 10L;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long productId;
@@ -45,6 +43,8 @@ public class Products{
     private String productDescription;
 
     private String sellerId;
+
+    private Boolean isActive;
 
 
     @Transient
