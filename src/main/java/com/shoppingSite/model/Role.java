@@ -1,4 +1,5 @@
 package com.shoppingSite.model;
+import com.shoppingSite.enums.ROLE;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,15 +16,15 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Builder
-@Table
+@Table(name = "role")
 
 public class Role {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long usersId;
+    private Long id;
 
-    private String roleName;
+    private ROLE roleName;
 
     private String isActive;
 }
