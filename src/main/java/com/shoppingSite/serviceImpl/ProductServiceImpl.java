@@ -1,11 +1,14 @@
 package com.shoppingSite.serviceImpl;
 
+import com.shoppingSite.Dto.ProductUpdateReqeustDto;
 import com.shoppingSite.model.Product;
 import com.shoppingSite.repository.ProductRepository;
 import com.shoppingSite.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @Slf4j
@@ -33,5 +36,17 @@ public class ProductServiceImpl implements ProductService {
         }
         product.setIsActive(false);
         this.save(product);
+    }
+
+
+    @Override
+    public  void update(ProductUpdateReqeustDto productRequestDto) {
+    }
+
+
+
+    @Override
+    public List<Product>getProducts(){
+       return productRepository.findAllByIsActiveIsTrue();
     }
 }
