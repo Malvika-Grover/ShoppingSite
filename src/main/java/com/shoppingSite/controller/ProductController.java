@@ -25,9 +25,19 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.PUT)
-    public boolean updateProduct(@RequestBody Product product) {
+    public boolean deleteProduct(@RequestBody Product product) {
         try {
             productService.delete(product);
+            return true;
+        } catch (Exception e) {
+            log.info("error: {}", e);
+        }
+        return false;
+    }
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    public boolean updateProduct(@RequestBody Product product) {
+        try {
+            productService.update(product);
             return true;
         } catch (Exception e) {
             log.info("error: {}", e);

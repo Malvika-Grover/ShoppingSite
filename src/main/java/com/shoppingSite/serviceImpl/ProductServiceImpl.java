@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService{
+
     @Autowired
     ProductRepository productRepository;
     @Override
@@ -33,5 +34,14 @@ public class ProductServiceImpl implements ProductService {
         }
         product.setIsActive(false);
         this.save(product);
+    }
+
+    @Override
+    public void update(Product product) {
+        if (null == product.getUnitInStock()){
+            log.info("Product can't be less than 0");
+        } else {
+            this.save(product);
+        }
     }
 }
