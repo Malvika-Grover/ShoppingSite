@@ -12,13 +12,14 @@ import java.nio.charset.Charset;
 
 
 @Controller
+@RequestMapping("/login")
 public class LoginController {
 
     @Autowired
     LoginService loginService;
 
 
-    @RequestMapping("/login")
+    @RequestMapping("/")
     public String login() {
         return "login.html";
     }
