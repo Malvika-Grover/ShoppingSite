@@ -18,6 +18,7 @@ public class LoginController {
     LoginService loginService;
 
 
+    // API to redirect to login
     @RequestMapping("/")
     public String login() {
         return "login.html";
@@ -40,6 +41,7 @@ public class LoginController {
 
     }
 
+    // API to add user to Database
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public Boolean addUser() {
         return null;

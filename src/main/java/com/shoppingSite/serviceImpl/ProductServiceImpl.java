@@ -1,6 +1,6 @@
 package com.shoppingSite.serviceImpl;
 
-import com.shoppingSite.Dto.ProductUpdateReqeustDto;
+import com.shoppingSite.Dto.ProductUpdateRequestDto;
 import com.shoppingSite.model.Product;
 import com.shoppingSite.repository.ProductRepository;
 import com.shoppingSite.service.ProductService;
@@ -18,12 +18,12 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void save(Product product){
         if (null == product){
-            log.info("product is null");
+            log.info("No product exists");
             return;
         }
         if( null == product.getProductName() || null ==product.getCurrency() || null == product.getProductPrice()
         || null == product.getProductCategory()||null == product.getUnitInStock()||null==product.getSellerId()){
-            log.info("incomplete details ");
+            log.info("Incomplete Details ");
             return;
         }
         productRepository.save(product);
@@ -32,7 +32,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void delete(Product product){
         if(null ==product){
-            log.info("no product is provided");
+            log.info("No product exists");
         }
         product.setIsActive(false);
         this.save(product);
@@ -40,9 +40,9 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public  void update(ProductUpdateReqeustDto request) {
+    public  void update(ProductUpdateRequestDto request) {
         if(null == request){
-            log.error("re");
+            log.error("Unable to update, Unauthorized!");
         }
     }
 

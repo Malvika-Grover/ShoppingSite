@@ -5,10 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductUpdateReqeustDto {
+public class ProductUpdateRequestDto {
     private long id;
 
-    private Integer unitsPurchaged;
+    private Integer unitsPurchased;
 
 
 }

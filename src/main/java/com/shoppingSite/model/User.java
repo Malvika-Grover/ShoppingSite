@@ -18,20 +18,25 @@ import javax.persistence.*;
 @Builder
 @Table(name = "User")
 
+//Database - User Table's columns and it's attributes
+
 public class User {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "user_name")
     private String username;
 
     private String password;
 
     private ROLE role;
 
+    @Column(name = "mobile_number")
     private int mobileNumber;
 
+    @Column(name = "is_active")
     private boolean isActive;
 
 }

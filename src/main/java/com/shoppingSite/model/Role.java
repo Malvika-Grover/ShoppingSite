@@ -18,13 +18,17 @@ import javax.persistence.*;
 @Builder
 @Table(name = "role")
 
+//Database - Role Table's columns and it's attributes
+
 public class Role {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "role_name")
     private ROLE roleName;
 
+    @Column(name = "is_active")
     private String isActive;
 }

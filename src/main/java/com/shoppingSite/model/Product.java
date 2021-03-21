@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 @Table(name = "product")
 
+//Database - Product Table's columns and it's attributes
 
 public class Product {
 
@@ -28,20 +29,28 @@ public class Product {
 
     @Column(name = "product_name")
     private String productName;
+
     @Column(name = "product_brand")
     private String productBrand;
+
     @Column(name = "product_model")
     private String productModel;
+
     @Column(name = "currency")
     private String currency;
+
     @Column(name = "product_price")
     private Double productPrice;
+
     @Column(name = "unit_in_stock")
     private Integer unitInStock;
+
     @Column(name = "product_category")
     private String productCategory;
+
     @Column(name = "product_description")
     private String productDescription;
+
     @Column(name = "seller_id")
     private String sellerId;
 
