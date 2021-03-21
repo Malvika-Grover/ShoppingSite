@@ -40,13 +40,15 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public  void update(ProductUpdateReqeustDto productRequestDto) {
+    public  void update(ProductUpdateReqeustDto request) {
+        if(null == request){
+            log.error("re");
+        }
     }
-
 
 
     @Override
     public List<Product>getProducts(){
-       return productRepository.findAllByIsActiveIsTrue();
+       return productRepository.findAllByIsActive(Boolean.TRUE);
     }
 }
