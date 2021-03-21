@@ -3,6 +3,7 @@ package com.shoppingSite.serviceImpl;
 
 import com.shoppingSite.model.User;
 import com.shoppingSite.repository.UserRepository;
+import com.shoppingSite.service.LoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class LoginServiceImpl implements com.shoppingSite.service.LoginService {
+public class LoginServiceImpl implements LoginService {
 
     @Autowired
     UserRepository userRepository;

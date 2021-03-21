@@ -1,15 +1,15 @@
 package com.shoppingSite.serviceImpl;
 
 import com.shoppingSite.model.Product;
-import com.shoppingSite.model.User;
 import com.shoppingSite.repository.ProductRepository;
+import com.shoppingSite.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class ProductServiceImpl implements com.shoppingSite.service.ProductService{
+public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepository productRepository;
     @Override

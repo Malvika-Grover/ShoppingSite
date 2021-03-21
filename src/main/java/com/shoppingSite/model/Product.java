@@ -17,14 +17,14 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table
+@Table(name = "product")
 
 
 public class Product {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long productId;
+    private long id;
 
     private String productName;
 
