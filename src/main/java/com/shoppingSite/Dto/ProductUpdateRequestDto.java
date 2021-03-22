@@ -8,4 +8,6 @@ import lombok.Setter;
 public class ProductUpdateRequestDto {
     private Long id;
     private Integer unitsPurchased;
+    private Double price;
+    private Integer unitInStock;
 }

@@ -2,6 +2,7 @@ package com.shoppingSite.serviceImpl;
 
 import com.shoppingSite.Dto.ProductUpdateRequestDto;
 import com.shoppingSite.model.Product;
+import com.shoppingSite.model.User;
 import com.shoppingSite.repository.ProductRepository;
 import com.shoppingSite.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
@@ -30,11 +31,17 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void delete(Long id){
-        if(null == id){
-            log.info("No product exists");
+    public void delete(Long productId, User user){
+        if(null == productId  || null == user){
+            log.info("invalid request");
+            return;
         }
-        Product product=productRepository.getProductByIdAndIsActiveIsTrue(id);
+
+        Product product=productRepository.getProductByIdAndIsActiveIsTrue(productId);
+        if("SELLER".equals(user.getRole()) &&  !user.getId().equals(product.getSellerId())){
+           log.info("only product owner can update");
+           return;
+        }
         product.setIsActive(false);
         this.save(product);
     }
@@ -42,7 +49,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public  void update(ProductUpdateRequestDto request) {
-        if(null == request){
+        if(null == request ){
             log.info("Unable to update, Unauthorized!");
             return;
         }
@@ -53,6 +60,12 @@ public class ProductServiceImpl implements ProductService {
         Product product= productRepository.getProductByIdAndIsActiveIsTrue(request.getId());
         if(null != request.getUnitsPurchased() ||( request.getUnitsPurchased()<=product.getUnitInStock() && request.getUnitsPurchased()>0 )){
             product.setUnitInStock(product.getUnitInStock()-request.getUnitsPurchased());
+        }
+        if(null != request.getUnitInStock() && request.getUnitInStock()>0){
+            product.setUnitInStock(product.getUnitInStock()+request.getUnitInStock());
+        }
+        if(null != request.getPrice() && request.getPrice()>0){
+            product.setProductPrice(request.getPrice());
         }
         productRepository.save(product);
 

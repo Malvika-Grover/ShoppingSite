@@ -16,7 +16,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Builder
-@Table(name = "User")
+@Table(name = "user")
 
 //Database - User Table's columns and it's attributes
 
