@@ -3,6 +3,7 @@ package com.shoppingSite.controller;
 import com.shoppingSite.Dto.ProductUpdateRequestDto;
 import com.shoppingSite.model.Product;
 import com.shoppingSite.service.ProductService;
+import com.shoppingSite.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,8 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    UserService userService;
+
     //http://localhost:8080/product/add - To add new product into the DB
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public boolean addProduct(@RequestBody Product product) {
@@ -33,9 +36,9 @@ public class ProductController {
 
     //http://localhost:8080/product/delete - To delete some product from DB
     @RequestMapping(value = "/delete", method = RequestMethod.PUT)
-    public boolean deleteProduct(@RequestBody Product product) {
+    public boolean deleteProduct(@RequestParam("id") Long id ) {
         try {
-            productService.delete(product);
+            productService.delete(id);
             return true;
         } catch (Exception e) {
             log.info("error: {}", e);
