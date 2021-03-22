@@ -12,7 +12,8 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService{
+
     @Autowired
     ProductRepository productRepository;
     @Override
@@ -39,16 +40,20 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
-    @Override
-    public  void update(ProductUpdateRequestDto request) {
-        if(null == request){
-            log.error("Unable to update, Unauthorized!");
-        }
-    }
 
 
     @Override
     public List<Product>getProducts(){
        return productRepository.findAllByIsActive(Boolean.TRUE);
     }
+
+    @Override
+    public void update(Product product) {
+        if (null == product.getUnitInStock()){
+            log.info("Product can't be less than 0");
+        } else {
+            this.save(product);
+        }
+    }
+
 }

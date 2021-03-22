@@ -10,7 +10,8 @@ public interface ProductService {
 
     public void delete(Product product);
 
-    public  void update(ProductUpdateRequestDto product);
 
     public List<Product> getProducts();
+    public void update(Product product);
+
 }

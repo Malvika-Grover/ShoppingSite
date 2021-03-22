@@ -43,17 +43,6 @@ public class ProductController {
         return false;
     }
 
-    //http://localhost:8080/product/update - To update some product(quantity) in DB
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public boolean updateProduct(@RequestBody ProductUpdateRequestDto productRequest){
-        try {
-            productService.update(productRequest);
-            return true;
-        }catch (Exception e){
-            log.info("error : {}",e );
-        }
-        return false;
-    }
 
     //http://localhost:8080/product/get - To fetch all the products from DB
     @RequestMapping(value = "/get", method = RequestMethod.GET)
@@ -65,6 +54,5 @@ public class ProductController {
             }
             return new ArrayList<Product>();
         }
-
 
 }
