@@ -1,5 +1,5 @@
 package com.shoppingSite.controller;
-/*
+
 import com.shoppingSite.service.LoginService;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,6 @@ import java.nio.charset.Charset;
 
 
 @Controller
-@RequestMapping
 public class LoginController {
 
     @Autowired
@@ -21,12 +20,10 @@ public class LoginController {
 
 
     @RequestMapping(value = "/login" , method = RequestMethod.GET)
-    public ModelAndView login() {
-        ModelAndView modelAndView=new ModelAndView();
-        modelAndView.setViewName("login");
-        return modelAndView;
+    public String login() {
+        return "login";
     }
-
+/*
     @RequestMapping(value = "/register" , method = RequestMethod.GET)
     public ModelAndView register() {
         ModelAndView modelAndView=new ModelAndView();
@@ -56,7 +53,6 @@ public class LoginController {
         return null;
 
         }
-
+*/
     }
 
-*/
