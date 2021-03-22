@@ -10,16 +10,16 @@ public class HealthCheckController {
 
     @GetMapping("/")
     public String home(){
-        return "<h1>Welcome</h1>";
+        return "Welcome";
     }
     
     @GetMapping("/admin")
     public String admin(){
-        return "<h1>Hello Admin</h1>";
+        return "Hello Admin";
     }
 
     @GetMapping("/user")
     public String user(){
-        return "<h1>Hello User</h1>";
+        return "Hello User";
     }
 }
