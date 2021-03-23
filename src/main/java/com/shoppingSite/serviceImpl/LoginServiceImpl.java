@@ -40,6 +40,9 @@ public class LoginServiceImpl implements LoginService {
         return false;
     }
 
+    /* For users who have logged in, this will take the token of the user and save it in DB for security purposes
+    Implemented to be used further
+     */
     @Override
     public String getUsernameFromAuthToken(byte[] token) {
         String auth = Base64.decodeBase64(token).toString();

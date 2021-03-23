@@ -15,8 +15,12 @@ import java.util.List;
 @Slf4j
 public class ProductServiceImpl implements ProductService{
 
+    /*
+    Checking the product's availability for admin and seller to modify(update, delete)
+     */
     @Autowired
     ProductRepository productRepository;
+
     @Override
     public void save(Product product){
         if (null == product){
@@ -34,17 +38,13 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void delete(Long productId){
         if(null == productId  ){
-            log.info("invalid request");
+            log.info("Invalid Request");
             return;
         }
-
         Product product=productRepository.getProductByIdAndIsActiveIsTrue(productId);
-
         product.setIsActive(false);
         this.save(product);
     }
-
-
 
     @Override
     public  void update(ProductUpdateRequestDto request) {
@@ -67,16 +67,10 @@ public class ProductServiceImpl implements ProductService{
             product.setProductPrice(request.getPrice());
         }
         productRepository.save(product);
-
     }
-
-
 
     @Override
     public List<Product>getProducts(){
        return productRepository.getProductByIsActiveAndUnitInStockGreaterThan(Boolean.TRUE,0);
     }
-
-
-
 }

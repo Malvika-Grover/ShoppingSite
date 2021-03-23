@@ -33,6 +33,9 @@ public class LoginController {
         return "login";
     }
 }
+
+
+// Register, Home and Submit API for new Users and to add user in DB
 /*
 
     @RequestMapping(value = "/register" , method = RequestMethod.GET)

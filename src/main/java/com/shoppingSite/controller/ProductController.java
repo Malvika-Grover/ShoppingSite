@@ -44,6 +44,18 @@ public class ProductController {
     //http://localhost:8080/product/delete - To delete some product from DB
     @RequestMapping(value = "/delete", method = RequestMethod.PUT)
     public boolean deleteProduct(@RequestParam("id") Long id ) {
+
+       /*
+        User specific delete API
+            -------------------------
+            Role  |      Access
+            -------------------------
+            User  |     No Access
+            Admin |     Access grant
+            Seller|     Check on seller_id with product_id
+
+        */
+
         /*
         User user=  userService.userAuthentication();
         log.info("{}",user.toString());
@@ -70,6 +82,19 @@ public class ProductController {
     //http://localhost:8080/product/update - To update some product(quantity) in DB
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public boolean updateProduct(@RequestBody ProductUpdateRequestDto productRequest){
+
+           /*
+        User specific update API
+            -------------------------
+            Role  |      Access
+            -------------------------
+            User  |     No Access
+            Admin |     Access grant
+            Seller|     Check on seller_id with product_id
+
+        */
+
+
        /* User user=  userService.userAuthentication();
         log.info("{}",user.toString());
         if(null== user){
@@ -91,6 +116,7 @@ public class ProductController {
 
 
     //http://localhost:8080/product/get - To fetch all the products from DB
+    //Accessed by people of every role
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public List<Product> getproducts(){
         try {

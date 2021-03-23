@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 @Service
 @Slf4j
 public class UserServiceImpl implements UserService {
+
+    /*
+    Checking for User details
+     */
+
     @Autowired
     UserRepository userRepository;
 
@@ -29,15 +34,16 @@ public class UserServiceImpl implements UserService {
         log.info("{}",id);
         return userRepository.getUserById(id);
     }
+
     @Override
     public User userAuthentication(){
 
         Long userId = Long.valueOf(httpServletRequest.getHeader("user"));
 
-        if(null == userId)
-        {
-            log.info("user id is absent");
-            return null;}
+        if(null == userId){
+            log.info("Unable to find User details");
+            return null;
+        }
         return this.getUserById(userId);
 
     }
@@ -47,13 +53,10 @@ public class UserServiceImpl implements UserService {
             log.info("No product exists");
             return;
         }
-        if(null == user.getUserName() || null == user.getRole() ||null==user.getPassword()
-        || null == user.getMobileNumber()) {log.info("Incomplete Details ");
+        if(null == user.getUserName() || null == user.getRole() ||null==user.getPassword() || null == user.getMobileNumber()) {
+            log.info("Incomplete Details ");
             return;
         }
         userRepository.save(user);
     }
-
-
-
 }
