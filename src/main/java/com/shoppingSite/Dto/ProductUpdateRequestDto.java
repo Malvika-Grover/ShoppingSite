@@ -6,9 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ProductUpdateRequestDto {
-    private long id;
-
+    private Long id;
     private Integer unitsPurchased;
-
-
+    private Double price;
+    private Integer unitInStock;
 }

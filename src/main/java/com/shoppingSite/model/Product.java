@@ -24,8 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "product_name")
     private String productName;

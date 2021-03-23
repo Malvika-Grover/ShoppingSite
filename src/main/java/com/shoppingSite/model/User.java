@@ -16,21 +16,22 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Builder
-@Table(name = "User")
+@Table(name = "user")
 
 //Database - User Table's columns and it's attributes
 
 public class User {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "user_name")
-    private String username;
+    private String userName;
 
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "role")
     private ROLE role;
 
     @Column(name = "mobile_number")

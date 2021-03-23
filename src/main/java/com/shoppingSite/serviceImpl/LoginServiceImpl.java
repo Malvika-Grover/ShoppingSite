@@ -1,4 +1,5 @@
 package com.shoppingSite.serviceImpl;
+/*
 import com.shoppingSite.model.User;
 import com.shoppingSite.repository.UserRepository;
 import com.shoppingSite.service.LoginService;
@@ -54,3 +55,4 @@ public class LoginServiceImpl implements LoginService {
     }
 
 }
+*/
