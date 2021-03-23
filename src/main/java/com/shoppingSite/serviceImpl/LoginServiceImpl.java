@@ -33,11 +33,7 @@ public class LoginServiceImpl implements LoginService {
             log.info("Password is null");
             return false;
         }
-        if (password.equals(user.getPassword())) {
-            return true;
-        }
-
-        return false;
+        return password.equals(user.getPassword());
     }
 
     /* For users who have logged in, this will take the token of the user and save it in DB for security purposes

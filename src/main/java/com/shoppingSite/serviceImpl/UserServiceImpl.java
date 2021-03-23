@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(User user){
         if (null == user){
-            log.info("No product exists");
+            log.info("No user exists");
             return;
         }
         if(null == user.getUserName() || null == user.getRole() ||null==user.getPassword() || null == user.getMobileNumber()) {

@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public void delete(Long productId){
         if(null == productId  ){
-            log.info("Invalid Request");
+            log.info("Invalid request");
             return;
         }
         Product product=productRepository.getProductByIdAndIsActiveIsTrue(productId);
@@ -49,11 +49,11 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public  void update(ProductUpdateRequestDto request) {
         if(null == request ){
-            log.info("Unable to update, Unauthorized!");
+            log.info("Unable to update");
             return;
         }
         if(null == request.getId()){
-            log.info("product id absent");
+            log.info("Product ID is absent");
             return;
         }
         Product product= productRepository.getProductByIdAndIsActiveIsTrue(request.getId());
