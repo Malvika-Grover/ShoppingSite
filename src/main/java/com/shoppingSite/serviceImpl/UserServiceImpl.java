@@ -41,5 +41,19 @@ public class UserServiceImpl implements UserService {
         return this.getUserById(userId);
 
     }
+    @Override
+    public void save(User user){
+        if (null == user){
+            log.info("No product exists");
+            return;
+        }
+        if(null == user.getUserName() || null == user.getRole() ||null==user.getPassword()
+        || null == user.getMobileNumber()) {log.info("Incomplete Details ");
+            return;
+        }
+        userRepository.save(user);
+    }
+
+
 
 }
