@@ -32,15 +32,6 @@ public class ProductController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public boolean addProduct(@RequestBody Product product) {
 
-      User user =  userService.userAuthentication();
-        if(null== user){
-            log.info("invalid user");
-            return false;
-        }
-        if(user.getRole().equals(ROLE.USER)){
-            log.info("user is not authorised");
-            return false;
-        }
         try {
             productService.save(product);
             return true;
@@ -53,6 +44,7 @@ public class ProductController {
     //http://localhost:8080/product/delete - To delete some product from DB
     @RequestMapping(value = "/delete", method = RequestMethod.PUT)
     public boolean deleteProduct(@RequestParam("id") Long id ) {
+        /*
         User user=  userService.userAuthentication();
         log.info("{}",user.toString());
         if(null== user){
@@ -63,8 +55,10 @@ public class ProductController {
             log.info("user is not authorised");
             return false;
         }
+        */
         try {
-            productService.delete(id,user);
+            productService.delete(id);
+
             return true;
         } catch (Exception e) {
             log.info("error: {}", e);
@@ -75,7 +69,7 @@ public class ProductController {
     //http://localhost:8080/product/update - To update some product(quantity) in DB
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public boolean updateProduct(@RequestBody ProductUpdateRequestDto productRequest){
-        User user=  userService.userAuthentication();
+       /* User user=  userService.userAuthentication();
         log.info("{}",user.toString());
         if(null== user){
             log.info("invalid user");
@@ -84,7 +78,7 @@ public class ProductController {
         if(user.getRole().equals(ROLE.USER)){
             log.info("user is not authorised");
             return false;
-        }
+        }*/
         try {
             productService.update(productRequest );
             return true;

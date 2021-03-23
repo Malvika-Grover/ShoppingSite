@@ -31,17 +31,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void delete(Long productId, User user){
-        if(null == productId  || null == user){
+    public void delete(Long productId){
+        if(null == productId  ){
             log.info("invalid request");
             return;
         }
 
         Product product=productRepository.getProductByIdAndIsActiveIsTrue(productId);
-        if("SELLER".equals(user.getRole()) &&  !user.getId().equals(product.getSellerId())){
-           log.info("only product owner can update");
-           return;
-        }
+
         product.setIsActive(false);
         this.save(product);
     }
