@@ -75,6 +75,16 @@ public class ProductController {
     //http://localhost:8080/product/update - To update some product(quantity) in DB
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     public boolean updateProduct(@RequestBody ProductUpdateRequestDto productRequest){
+        User user=  userService.userAuthentication();
+        log.info("{}",user.toString());
+        if(null== user){
+            log.info("invalid user");
+            return false;
+        }
+        if(user.getRole().equals(ROLE.USER)){
+            log.info("user is not authorised");
+            return false;
+        }
         try {
             productService.update(productRequest );
             return true;

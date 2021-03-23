@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
     User findByUserNameAndIsActiveIsTrue(String userName);
 
-    @Query(nativeQuery = true , value = "select * from user where is_active=1 and id=?1")
-    User getuser(Long id);
+   User getUserById(Long id);
 
 }

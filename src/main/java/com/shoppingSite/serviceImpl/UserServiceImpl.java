@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public  User getUserById(Long id){
-
-        return userRepository.getuser(id);
+        log.info("{}",id);
+        return userRepository.getUserById(id);
     }
     @Override
     public User userAuthentication(){
