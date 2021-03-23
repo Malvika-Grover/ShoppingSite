@@ -35,7 +35,7 @@ public class User {
     private ROLE role;
 
     @Column(name = "mobile_number")
-    private int mobileNumber;
+    private Long mobileNumber;
 
     @Column(name = "is_active")
     private boolean isActive;

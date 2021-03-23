@@ -1,5 +1,5 @@
 package com.shoppingSite.serviceImpl;
-/*
+
 import com.shoppingSite.model.User;
 import com.shoppingSite.repository.UserRepository;
 import com.shoppingSite.service.LoginService;
@@ -24,7 +24,7 @@ public class LoginServiceImpl implements LoginService {
             log.info("Username or Password is null");
             return false;
         }
-        User user = userRepository.findByUsername(username);
+        User user = userRepository.getUserById(1L);
         if (null == user) {
             log.info("Not a valid user");
             return false;
@@ -55,4 +55,3 @@ public class LoginServiceImpl implements LoginService {
     }
 
 }
-*/
